@@ -1,0 +1,13 @@
+body{
+    background-color: #f0ffff;
+    padding:10px 20px;
+}
+.flexible{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+#logo{
+    border-radius: 15px;
+    width:200px;
+}
