@@ -51,7 +51,7 @@
                 for ($i = 0; $i < sizeof($experiencies); $i++) {
                     $iExperiencia = $experiencies[$i];
 
-                    echo '<div class="col-sm">'.$iExperiencia['titol'].'</div>';
+                    echo '<div class="col-4">'.$iExperiencia['titol'].'</div>';
                 }
                 
                 ?>
