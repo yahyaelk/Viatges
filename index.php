@@ -10,7 +10,7 @@
     ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <title>Viatges</title>
 </head>
 
@@ -47,7 +47,7 @@
                 $experiencia = new Experiencia();
 
                 $experiencies = $experiencia->selectUltimesExperiencies();
-
+                
                 for ($i = 0; $i < sizeof($experiencies); $i++) {
                     $iExperiencia = $experiencies[$i];
 
