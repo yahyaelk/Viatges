@@ -5,7 +5,7 @@ require_once('DBAbstractModel.php');
 class Experiencia extends DBAbstractModel {
 
     function __construct() {
-        $this->db_name = "a17yahelekaj_viatges";
+        $this->db_name = "viatges";
     }
 
     public function selectUltimesExperiencies() {

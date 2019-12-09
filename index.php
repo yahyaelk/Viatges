@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <?php
+    require_once('model/experiencia.php');
+    ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -41,9 +44,18 @@
     <div class="display-4">Últimes experiències</div>
     <div class="container">
         <div class="row">
-            <div class="col-sm">Experiència 1</div>
-            <div class="col-sm">Experiència 2</div>
-            <div class="col-sm">Experiència 3</div>
+            <?php
+                $experiencia = new Experiencia();
+
+                $experiencies = $experiencia->selectUltimesExperiencies();
+
+                for ($i = 0; $i < sizeof($experiencies); $i++) {
+                    $iExperiencia = $experiencies[$i];
+
+                    echo '<div class="col-sm">'.$iExperiencia['titol'].'</div>';
+                }
+                
+                ?>
         </div>
     </div>
 
