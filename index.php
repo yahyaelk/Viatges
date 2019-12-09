@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-7 col-xs-12">
                     <h1>Benvingut</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae officia cumque nostrum neque, incidunt corrupti. Eaque praesentium modi cumque amet aliquam ea fugit explicabo dolores quod sapiente? Repudiandae, quae. Ut.</p>
+                    <p>Loremm ipsum dolor sit amet consectetur adipisicing elit. Molestiae officia cumque nostrum neque, incidunt corrupti. Eaque praesentium modi cumque amet aliquam ea fugit explicabo dolores quod sapiente? Repudiandae, quae. Ut.</p>
                 </div>
             </div>
         </div>
