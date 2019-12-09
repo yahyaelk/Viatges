@@ -9,19 +9,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <title>Viatges</title>
+    <style>
+        body{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-      <div class="container">
-      <img class="navbar-brand js-scroll-trigger"src="">
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Inicia Sessió
-      </button>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Registrarse
-      </button>
-      </div>
-  </nav>
+    <div class= "display-4">Últimes experiències</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">Experiència 1</div>
+            <div class="col-sm">Experiència 2</div>
+            <div class="col-sm">Experiència 3</div>
+        </div>
+    </div>
 </body>
-
 </html>
