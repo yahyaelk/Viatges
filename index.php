@@ -24,8 +24,8 @@
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <button type="button" class="btn btn-light">Inicia Sessió</button>
-                <button type="button" class="btn btn-light">Registrarse</button>
+                <button type="button" class="btn btn-primary">Inicia Sessió</button>
+                <button type="button" class="btn btn-secondary">Registrarse</button>
             </div>
         </div>
     </div>
