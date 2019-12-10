@@ -10,14 +10,21 @@ $(document).ready(function(){
         var password = $('#inputPassword').val();
 
         $.ajax({
-            url: "controller/iniciar.php",
+            url: "controller/checkUser.php",
             type: "post",
             data: {
                 username: username,
                 password: password
             },
             success: function(result){
-                
+                var msg= "";
+                if (response== 1){
+                    window.location= "iniciar.php";
+                }
+                else{
+                    msg= "Invalid username and password";
+                }
+                $("#message").html(msg);
             }
         });
     });

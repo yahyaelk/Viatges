@@ -12,10 +12,10 @@ CREATE TABLE IF NOT EXISTS usuari(
 
 CREATE TABLE IF NOT EXISTS experiencia(
   id INT PRIMARY KEY AUTO_INCREMENT,
-  titol VARCHAR(30),
+  titol VARCHAR(50),
   contingut VARCHAR(400),
   imatge VARCHAR(100),
-  coordenadas VARCHAR(15), 
+  coordenadas VARCHAR(25), 
   estat ENUM('esborrany', 'publicada', 'rebutjada'),
   valoracioPos INT(6),
   valoracioNeg INT(6),
