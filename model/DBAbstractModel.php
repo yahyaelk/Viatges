@@ -2,8 +2,8 @@
 
 abstract class DBAbstractModel {
   private static $db_host = "localhost";
-  private static $db_user = "a18sonvargar";
-  private static $db_pass = "a18sonvargar7";
+  private static $db_user = "yahya";
+  private static $db_pass = "ausias";
 
   protected $db_name;
 
@@ -17,6 +17,7 @@ abstract class DBAbstractModel {
 
   private function open_connection() {
     $this->conn = new mysqli (self::$db_host, self::$db_user, self::$db_pass, $this->db_name);
+    $this->conn ->set_charset("utf8");
   }
   
   private function close_connection(){
