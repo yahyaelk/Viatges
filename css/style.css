@@ -30,3 +30,7 @@ body{
 #mensajeBienvenida{
     margin-top: 35px;
 }
+
+.margin-bottom-20{
+    margin-bottom: 20px !important;
+}
