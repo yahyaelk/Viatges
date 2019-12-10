@@ -62,9 +62,21 @@
 
                 </div>
                 <button type="button" class="btn btn-light">Registrarse</button>
+            
+    <?php
+        session_start();
+
+        if (empty($_SESSION['userLogged'])) {
+            echo '<button type="button" class="btn btn-primary">Inicia Sessió</button>
+                <button type="button" class="btn btn-secondary">Registrarse</button>';
+        }else{
+            //TODO En cas de que estigui loguejat
+        }
+    ?>
             </div>
         </div>
     </div>
+    
 
     <div id="bienvenida">
         <div class="container">
@@ -82,20 +94,32 @@
         </div>
     </div>
 
-    <div class="display-4">Últimes experiències</div>
+    
+    <div class="display-4">
+        <?php
+            if (empty($_SESSION['userLogged'])) {
+                echo 'Últimes experiències';
+            }else{
+                echo 'Experiències';
+            }
+        ?>
+    </div>
     <div class="container">
-        <div class="row">
+        <div class="row" id="experiencies">
             <?php
                 $experiencia = new Experiencia();
 
-                $experiencies = $experiencia->selectUltimesExperiencies();
+                if (empty($_SESSION['userLogged'])) {
+                    $experiencies = $experiencia->selectUltimesExperiencies();
 
-                for ($i = 0; $i < sizeof($experiencies); $i++) {
-                    $iExperiencia = $experiencies[$i];
-
-                    echo '<div class="col-4 experiencia">'.$iExperiencia['titol'].'</div>';
+                    for ($i = 0; $i < sizeof($experiencies); $i++) {
+                        $iExperiencia = $experiencies[$i];
+    
+                        echo '<div class="col-4 experiencia">'.$iExperiencia['titol'].'</div>';
+                    }
+                }else{
+                    //TODO En cas de que estigui loguejat
                 }
-                
                 ?>
         </div>
     </div>
