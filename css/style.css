@@ -12,6 +12,16 @@ body{
     width:200px;
 }
 
+.display-4{
+    text-align: center;
+    margin: 10px;
+}
+
+.experiencia{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
 #bienvenida{
     margin-top: 50px;
     margin-bottom: 50px;
