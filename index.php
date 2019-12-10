@@ -68,6 +68,7 @@
         }else{
             //TODO En cas de que estigui loguejat
         }
+        
     ?>
             </div>
         </div>
