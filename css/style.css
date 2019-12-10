@@ -25,6 +25,7 @@ body{
     to {left: 300px;}
   }
   
+  
   @keyframes mymove {
     from {left: 0px;}
     to {left: 300px;}
