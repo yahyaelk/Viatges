@@ -25,44 +25,39 @@
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <div class="container">
-                    <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h1 class="modal-title h3 mb-3 font-weight-normal">Please sign in</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form-signin">
-                                        <label for="inputEmail" class="sr-only">Email address</label>
-                                        <input type="email" id="inputEmail" class="form-control"
-                                            placeholder="Email address" required autofocus>
-                                        <label for="inputPassword" class="sr-only">Password</label>
-                                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <button type="button" class="btn btn-light">Registrarse</button>
             
     <?php
         session_start();
 
         if (empty($_SESSION['userLogged'])) {
-            echo '<button type="button" class="btn btn-primary">Inicia Sessió</button>
+            echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>
                 <button type="button" class="btn btn-secondary">Registrarse</button>';
+            
+            //MODAL
+
+            echo '<div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h1 class="modal-title h3 mb-3 font-weight-normal">Please sign in</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-signin">
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <input type="email" id="inputEmail" class="form-control"
+                                    placeholder="Email address" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        </div>
+                    </div>
+                </div>
+            </div>';
         }else{
             //TODO En cas de que estigui loguejat
         }
