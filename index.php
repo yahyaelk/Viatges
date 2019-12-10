@@ -91,7 +91,7 @@
     </div>
 
     
-    <div class="display-4">
+    <div class="display-4 margin-bottom-20">
         <?php
             if (empty($_SESSION['userLogged'])) {
                 echo 'Últimes experiències';
@@ -114,9 +114,20 @@
                         echo '<div class="col-4 experiencia">'.$iExperiencia['titol'].'</div>';
                     }
                 }else{
-                    //TODO En cas de que estigui loguejat
+                    echo '<div class="col-4 margin-bottom-20">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="img/card.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Experiencia</h5>
+                                    <p class="card-text"><small class="text-muted">09-12-2019</small></p>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
+                                </div>
+                            </div>
+                        </div>';
                 }
                 ?>
+
+            
         </div>
     </div>
     <script type="text/javascript" src="js/scripts.js"></script>
