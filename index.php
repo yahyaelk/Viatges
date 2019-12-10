@@ -82,6 +82,7 @@
                 </div>
                 <div class="col-12 col-xl-6">
                     <h1>Benvingut</h1>
+                    <img id="object_plane" src="img/avion.png" width="50">
                     <p id="mensajeBienvenida">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae officia
                         cumque nostrum neque, incidunt corrupti. Eaque praesentium modi cumque amet aliquam ea fugit
                         explicabo dolores quod sapiente? Repudiandae, quae. Ut.</p>

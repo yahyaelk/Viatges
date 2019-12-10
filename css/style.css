@@ -12,6 +12,24 @@ body{
     width:200px;
 }
 
+#object_plane {
+    transform: translate(400%, -100%);
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+  }
+  
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+  }
+  
+  @keyframes mymove {
+    from {left: 0px;}
+    to {left: 300px;}
+  }
+
 .display-4{
     text-align: center;
     margin: 10px;
@@ -29,6 +47,7 @@ body{
 
 #mensajeBienvenida{
     margin-top: 35px;
+    transform: translate(0%, -70%);
 }
 
 .margin-bottom-20{
