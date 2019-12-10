@@ -9,10 +9,17 @@
     require_once('model/experiencia.php');
     ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- BOOTSTRAP -->
+    <!-- BOOTSTRAP CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- BOOTSTRAP JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="icon" href="logos/favicon.ico">
+    
     <title>Viatges</title>
 </head>
 
@@ -21,7 +28,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <img id="logo" src="logo_rombo/facebook_cover_photo_1.png">
+                <img id="logo" src="logos/logo.png">
             </div>
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
@@ -30,7 +37,7 @@
         session_start();
 
         if (empty($_SESSION['userLogged'])) {
-            echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>
+            echo '<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>
                 <button type="button" class="btn btn-secondary">Registrarse</button>';
             
             //MODAL
@@ -40,20 +47,20 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
+                            <h1 class="modal-title h3 mb-3 font-weight-normal">Please sign in</h1>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h1 class="modal-title h3 mb-3 font-weight-normal">Please sign in</h4>
                         </div>
                         <div class="modal-body">
                             <form class="form-signin">
-                                <label for="inputEmail" class="sr-only">Email address</label>
-                                <input type="email" id="inputEmail" class="form-control"
-                                    placeholder="Email address" required autofocus>
+                                <label for="inputUser" class="sr-only">User</label>
+                                <input type="text" id="inputUser" class="form-control"
+                                    placeholder="User" required autofocus>
                                 <label for="inputPassword" class="sr-only">Password</label>
                                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                            <button type= "button" id= "botoIni" class="btn btn-lg btn-primary btn-block">Sign in</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +119,7 @@
                 ?>
         </div>
     </div>
-
+    <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,9 @@
 <?php
 
-abstract class DBAbstractModel {
+abstract class Conexio {
   private static $db_host = "localhost";
-  private static $db_user = "laia";
-  private static $db_pass = "laia";
+  private static $db_user = "a18sonvargar";
+  private static $db_pass = "a18sonvargar7";
 
   protected $db_name;
 
@@ -12,8 +12,6 @@ abstract class DBAbstractModel {
   protected $rows=array();
 
   private $conn;
-
-  abstract protected function selectUltimesExperiencies();
 
   private function open_connection() {
     $this->conn = new mysqli (self::$db_host, self::$db_user, self::$db_pass, $this->db_name);
