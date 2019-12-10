@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS viatges;
 USE viatges;
 
 /* TABLA EXPERIENCIA */
