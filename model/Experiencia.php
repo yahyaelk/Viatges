@@ -1,8 +1,8 @@
 <?php
 
-require_once('DBAbstractModel.php');
+require_once('conexio.php');
 
-class Experiencia extends DBAbstractModel {
+class Experiencia extends Conexio {
 
     function __construct() {
         $this->db_name = "viatges";

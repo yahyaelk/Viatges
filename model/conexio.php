@@ -1,6 +1,6 @@
 <?php
 
-abstract class DBAbstractModel {
+abstract class Conexio {
   private static $db_host = "localhost";
   private static $db_user = "yahya";
   private static $db_pass = "ausias";
