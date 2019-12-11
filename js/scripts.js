@@ -18,7 +18,7 @@ $(document).ready(function(){
             },
             success: function(result){
                 var msg= "";
-                if (response== 1){
+                if (result== 1){
                     window.location= "iniciar.php";
                 }
                 else{
