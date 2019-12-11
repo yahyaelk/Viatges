@@ -13,7 +13,9 @@ body{
 button{
     margin: 5px;
 }
-
+/*<header id="main-header">
+        <img id="logo" src="logos/logo.png" width="200px">
+    </header>*/
 #main-header {
 	background: #c4e4f4;
 	color: white;
