@@ -17,6 +17,7 @@ class Usuari extends Conexio {
             if (count($this->rows)==1) {
                 foreach ($this->rows[0] as $property => $value)
                 $this->$property = $value;
+                session_start();
                 $_SESSION['userLogged']= $username;
                 return $this->rows;
             }
