@@ -23,7 +23,7 @@ function printNoLogged() {
 
     $('#myModal').modal('hide');
     $('#headerRight').html('<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>'+
-    '<button type="button" class="btn btn-secondary">Registrarse</button>');
+    '<button type="button" id= "registrar" class="btn btn-secondary">Registrarse</button>');
 
 }
 
