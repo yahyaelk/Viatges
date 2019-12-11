@@ -36,6 +36,3 @@ echo 'true';
 </body>
 
 </html>
-
-
-

@@ -25,7 +25,6 @@ class Usuari extends Conexio {
             }
         }
     }
-
 }
 
 ?>

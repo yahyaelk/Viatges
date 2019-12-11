@@ -5,12 +5,12 @@ $('#myModal').modal('show');
 
 
 $(document).ready(function(){
-    $("botoIni").click(function(){
+    $("#botoIni").click(function(){
         var username = $('#inputUser').val();
         var password = $('#inputPassword').val();
 
         $.ajax({
-            url: "controller/checkUser.php",
+            url: "model/login.php",
             type: "post",
             data: {
                 username: username,
@@ -27,5 +27,6 @@ $(document).ready(function(){
                 $("#message").html(msg);
             }
         });
+
     });
   });
