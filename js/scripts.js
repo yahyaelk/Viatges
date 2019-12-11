@@ -17,13 +17,15 @@ $(document).ready(function(){
                 password: password
             },
             success: function(result){
+                var resultObj = JSON.parse(result);
                 var msg= "";
-                if (result== 1){
-                    window.location= "iniciar.php";
-                }
-                else{
+
+                if(resultObj.status == 'OK'){
+                    //COMPLETAR
+                }else{
                     msg= "Invalid username and password";
                 }
+
                 $("#message").html(msg);
             }
         });
