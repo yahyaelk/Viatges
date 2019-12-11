@@ -54,3 +54,7 @@ body{
 .margin-bottom-20{
     margin-bottom: 20px !important;
 }
+
+#message{
+    color: red;
+}
