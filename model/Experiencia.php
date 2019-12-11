@@ -9,7 +9,7 @@ class Experiencia extends Conexio {
     }
 
     public function selectUltimesExperiencies() {
-        $this->query = "SELECT titol FROM experiencia";
+        $this->query = "SELECT * FROM experiencia ORDER BY fecha_publ DESC LIMIT 3";
         $this->get_results_from_query();
 
         if (count($this->rows)==1) {
