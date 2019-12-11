@@ -25,20 +25,17 @@
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <img id="logo" src="logos/logo.png">
-            </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-            
+    <header id="main-header">
+        <img id="logo" src="logos/logo.png" width="200px">
+    </header>
     <?php
         session_start();
 
         if (empty($_SESSION['userLogged'])) {
-            echo '<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>
-                <button type="button" class="btn btn-secondary">Registrarse</button>';
+            echo '<div class="flexible">
+                    <button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>
+                    <button type="button" class="btn btn-secondary">Registrarse</button>
+                </div>';
             
             //MODAL
 
@@ -70,12 +67,9 @@
         }
         
     ?>
-            </div>
-        </div>
-    </div>
     
 
-    <div id="bienvenida">
+    <div id="bienvenida" >
         <div class="container">
             <div class="row">
                 <div class="col-12 col-xl-5">

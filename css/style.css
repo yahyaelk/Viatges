@@ -1,12 +1,32 @@
 body{
-    background-color: #f0ffff;
+    background-color: #f4fafb;
     padding:10px 20px;
 }
 .flexible{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-content: center;
+    transform: translate(0%, 0%);
 }
+
+button{
+    margin: 5px;
+}
+
+#main-header {
+	background: #c4e4f4;
+	color: white;
+	height: 80px;
+	
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+}	
+	
+
+
 #logo{
     border-radius: 15px;
     width:200px;
@@ -24,8 +44,7 @@ body{
     from {left: 0px;}
     to {left: 300px;}
   }
-  
-  
+
   @keyframes mymove {
     from {left: 0px;}
     to {left: 300px;}
@@ -45,6 +64,17 @@ body{
     margin-top: 50px;
     margin-bottom: 50px;
 }
+/*.bienvenida{
+    background-image: url('img/paisaje.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100% ;
+    text-align: center;
+}*/
 
 #mensajeBienvenida{
     margin-top: 35px;
