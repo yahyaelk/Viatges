@@ -58,3 +58,16 @@ body{
 #message{
     color: red;
 }
+
+#btnSortir{
+    float: right;
+}
+
+
+#registrar{
+    float: right;
+}
+
+#headerRight{
+    padding-right: 62px;
+}
