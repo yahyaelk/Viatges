@@ -24,11 +24,19 @@
 
 <body>
 <header id="main-header">
-        <img id="logo" src="logos/logo.png" width="200px">
-    </header>
-            <div id="headerRight" class="flexible">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <img id="logo" src="logos/logo.png">
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4" id="headerRight">
 
             </div>
+        </div>
+    </div>
+    </header>
 
 
     <div id="bienvenida" >
