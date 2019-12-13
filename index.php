@@ -56,13 +56,20 @@
         </div>
     </div>
 
-
+    
     <div class="display-4 margin-bottom-20">Últimes experiències</div>
+
+    <div class="container margin-bottom-20">
+        <div class="row d-flex flex-row-reverse bd-highlight">
+            <div id= "afegir"></div>
+        </div>
+    </div>
     <div class="container">
         <div class="row" id="experiencies">
 
         </div>
     </div>
+    <div id= "formulariExp"></div>
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">

@@ -20,6 +20,10 @@ class Experiencia extends Conexio {
         return $this->rows;
     }
 
+    public function afegirExperiencia($titol, $fecha, $text){
+        $this->query = "INSERT INTO experiencia (titol, contingut, fecha_publ) VALUES ('$titol', '$text', '$fecha')";
+        $this->execute_single_query();
+    }
 }
 
 ?>

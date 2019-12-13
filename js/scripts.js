@@ -31,6 +31,7 @@ function printLogged() {
     $('#myModal').modal('hide');
 
     $('#headerRight').html('<button id="btnSortir" type="button" class="btn btn-secondary">Sortir</button>');
+    $('#afegir').html('<button id="btnAfegir" type="button" class="btn btn-primary">Afegir experiència</button>');
 
     $.ajax({
         url: "model/getExperiencies.php",
@@ -115,3 +116,46 @@ $(document).ready(function(){
         });
     });
   });
+
+  
+
+$('#afegir').on('click', '#btnAfegir', (function() {
+    var formulariExpDiv = $('#formulariExp');
+    formulariExpDiv.html('');
+    formulariExpDiv.html(formulariExpDiv.html() + '<form class="form-signin">'+
+                        '<label for="inputTitol" class="sr-only">Títol</label>'+
+                        '<input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>'+
+                        '<label for="inputData" class="sr-only">Data</label>'+
+                        '<input type="text" id="inputData" class="form-control" placeholder="Data" required>'+
+                        '<label for="inputText" class="sr-only">Text</label>'+
+                        '<input type="text" id="inputText" class="form-control" placeholder="Text" required>'+
+                        '<label for="inputCat" class="sr-only">Categoría</label>'+
+                        '<input type="text" id="inputCat" class="form-control" placeholder="Categoria" required>'+
+                        '<input type="button" id= "afegirExp" value= "Afegir">'+
+                    '</form>');
+}));
+
+$('#formulariExp').on('click', '#afegirExp', (function() {
+    console.log ("entra");
+    var titol = $('#inputTitol').val();
+    var fecha = $('#inputData').val();
+    var text = $('#inputText').val();
+    var categoria = $('#inputCat').val();
+
+    $.ajax({
+        url: "model/afegir.php",
+        type: "post",
+        data: {
+            titol: titol,
+            fecha: fecha,
+            text: text,
+            categoria:categoria
+        },
+        success: function(result){
+            var resultat = JSON.parse(result);
+            if (resultat.status == 'OK'){
+                console.log ("s'ha afegit");
+            }
+        }
+    });
+}));
