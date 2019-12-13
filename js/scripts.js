@@ -55,6 +55,16 @@ function printLogged() {
                             '<p class="card-text"><small class="text-muted">'+fecha.getUTCDay()+'-'+fecha.getUTCMonth()+'-'+fecha.getUTCFullYear()+'</small></p>'+
                             '<p class="card-text">'+experiencia['contingut']+'</p>'+
                         '</div>'+
+                        '<div class="card-footer d-flex justify-content-between">'+
+                            '<div class="col-6">'+
+                                '<button class="like" id="like'+experiencia['id']+'"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>'+
+                                '<div class="color-cyan" id="countLikes'+experiencia['id']+'">'+experiencia['valoracioPos']+'</div>'+
+                            '</div>'+
+                            '<div class="col-6">'+
+                            '<button class="dislike" id="dislike'+experiencia['id']+'"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>'+
+                            '<div class="color-red" id="countDislikes'+experiencia['id']+'">'+experiencia['valoracioNeg']+'</div>'+
+                            '</div>'+
+                        '</div>'+
                         '</div>'+
                     '</div>');
             }
@@ -95,7 +105,6 @@ $(document).ready(function(){
                 var msg= "";
 
                 if(resultObj.status == 'OK'){
-                    console.log('OK');
                     printLogged();
                 }else{
                     msg= "Invalid username and password";
@@ -115,7 +124,59 @@ $(document).ready(function(){
             }
         });
     });
-  });
+
+    $('#experiencies').on('click', "[id^='like']", function(){
+        var id = this.id.replace('like','');
+
+        if(id != '' && !isNaN(id)){
+            $(this).attr('disabled', true);
+
+            $.ajax({
+                url: "model/likeDislike.php",
+                type: "post",
+                data: {
+                    accion: 'like',
+                    id: id
+                },
+                success: function(result){
+                    var resultObj = JSON.parse(result);
+    
+                    if(resultObj.status == 'OK'){
+                        $('#countLikes'+id).html(resultObj.num);
+                    }
+    
+                }
+            });
+        }
+        
+    });
+
+    $('#experiencies').on('click', "[id^='dislike']", function(){
+        var id = this.id.replace('dislike','');
+
+        if(id != '' && !isNaN(id)){
+            $(this).attr('disabled', true);
+
+            $.ajax({
+                url: "model/likeDislike.php",
+                type: "post",
+                data: {
+                    accion: 'dislike',
+                    id: id
+                },
+                success: function(result){
+                    var resultObj = JSON.parse(result);
+    
+                    if(resultObj.status == 'OK'){
+                        $('#countDislikes'+id).html(resultObj.num);
+                    }
+    
+                }
+            });
+        }
+        
+    });
+});
 
   
 
@@ -159,3 +220,5 @@ $('#formulariExp').on('click', '#afegirExp', (function() {
         }
     });
 }));
+
+    
