@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    </header>
+</header>
 
 
     <div id="bienvenida" >
