@@ -63,8 +63,8 @@
 
     <div class="container margin-bottom-20">
         <div class="row d-flex flex-row-reverse bd-highlight col-12">
-            <div id= "filtreCat"></div>
             <div id= "afegir"></div>
+            <div id= "filtreCat"></div>
             <div id="ordenacio" class="col-4 row"></div>
         </div>
     </div>

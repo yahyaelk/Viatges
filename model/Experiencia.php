@@ -19,9 +19,11 @@ class Experiencia extends Conexio {
 
         return $this->rows;
     }
-    
+
     public function afegirExperiencia($titol, $fecha, $text){
-        $img= "https://picsum.photos/286/180";
+        $random= random_int(8, 100);
+        $url= "https://picsum.photos/286/180?random=";
+        $img= $url. $random;
         $this->query = "INSERT INTO experiencia (titol, contingut, fecha_publ, imatge) VALUES ('$titol', '$text', '$fecha', '$img')";
         $this->execute_single_query();
         
