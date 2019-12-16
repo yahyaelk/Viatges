@@ -65,7 +65,8 @@ function printLogged() {
             var resultObj = JSON.parse(result);
 
             if(resultObj.status == 'OK'){
-                var html= '<select id="inputCat" class="form-control">';
+                var html= '<select id="inputCat" class="form-control">'+
+                '<option value="todas">Todas</option>';
                 for(var i = 0;i < resultObj.datos.length; i++){
                     var categoria = resultObj.datos[i];
                     html +='<option value="'+categoria['id']+'">'+categoria['nom']+'</option>';

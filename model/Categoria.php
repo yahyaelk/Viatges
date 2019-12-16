@@ -21,9 +21,14 @@ class Categoria extends Conexio {
     }
 
     public function filtreCategories($categoria){
-        $this->query = "SELECT * FROM experiencia WHERE id_cat = $categoria";
-        $this->get_results_from_query();
-
+        if ($categoria== "todas"){
+            $this->query = "SELECT * FROM experiencia";
+            $this->get_results_from_query();
+        }
+        else{
+            $this->query = "SELECT * FROM experiencia WHERE id_cat = $categoria";
+            $this->get_results_from_query();
+        }
         if (count($this->rows)==1) {
             foreach ($this->rows[0] as $property => $value)
             $this->$property = $value;
