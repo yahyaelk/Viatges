@@ -22,7 +22,7 @@ button{
 	width: 100%;
 	left: 0;
 	top: 0;
-	position: fixed;
+	position: absolute;
 }	
 	
 
@@ -61,7 +61,7 @@ button{
     font-weight: bold;
 }
 #bienvenida{
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 50px;
 }
 /*.bienvenida{
@@ -87,4 +87,53 @@ button{
 
 #message{
     color: red;
+}
+
+#btnSortir{
+    float: right;
+}
+
+
+#registrar{
+    float: right;
+}
+
+#headerRight{
+    padding-right: 62px;
+}
+
+.like{
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+    color: rgba(0,150,136 ,1);
+    background-color: rgba(38,166,154 ,0.3);
+    border-color: rgba(0,150,136 ,1);
+    border-width: 1px;
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+.dislike{
+    width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	border-radius: 50%;
+	color: rgba(255,82,82 ,1);
+	background-color: rgba(255,138,128 ,0.3);
+	border-color: rgba(255,82,82 ,1);
+	border-width: 1px;
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+.color-cyan{
+    color: rgba(0,150,136 ,1);
+    display: inline;
+}
+
+.color-red{
+    color: rgba(255,82,82 ,1);
+    display: inline;
 }

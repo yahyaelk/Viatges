@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- BOOTSTRAP CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- LLIBRERIA D'ICONES PER EL LIKE I DISLIKE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- BOOTSTRAP JS-->
     <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
@@ -36,7 +38,7 @@
             </div>
         </div>
     </div>
-    </header>
+</header>
 
 
     <div id="bienvenida" >
@@ -56,13 +58,20 @@
         </div>
     </div>
 
-
+    
     <div class="display-4 margin-bottom-20">Últimes experiències</div>
+
+    <div class="container margin-bottom-20">
+        <div class="row d-flex flex-row-reverse bd-highlight">
+            <div id= "afegir"></div>
+        </div>
+    </div>
     <div class="container">
         <div class="row" id="experiencies">
 
         </div>
     </div>
+    <div id= "formulariExp"></div>
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
