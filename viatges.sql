@@ -21,7 +21,9 @@ CREATE TABLE IF NOT EXISTS experiencia(
   valoracioNeg INT(6) DEFAULT 0,
   fecha_publ DATETIME,
   id_us INT,
-  FOREIGN KEY (id_us) REFERENCES usuari (id)
+  id_cat INT,
+  FOREIGN KEY (id_us) REFERENCES usuari (id),
+  FOREIGN KEY (id_cat) REFERENCES categoria (id)
 );
 
 CREATE TABLE IF NOT EXISTS categoria(

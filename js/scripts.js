@@ -71,6 +71,40 @@ function printLogged() {
 
         }
     });
+    //PARTE DE FILTRAR POR CATEGORIA
+    $.ajax({
+        url: "model/getCategories.php",
+        type: "post",
+        success: function(result){
+            var resultObj = JSON.parse(result);
+
+            if(resultObj.status == 'OK'){
+                var html= '<select id="inputCat" class="form-control">';
+                for(var i = 0;i < resultObj.datos.length; i++){
+                    var categoria = resultObj.datos[i];
+                    html +='<option value="'+categoria['id']+'">'+categoria['nom']+'</option>';
+                }
+                html+='</select>';
+                $('#filtreCat').html(html);
+            }
+        }
+    });
+    var categoria= $( "#filtreCat" ).val();
+    $.ajax({
+        url: "model/filtreCategories.php",
+        type: "post",
+        data: {
+            categoria: categoria
+        },
+        success: function(result){
+            var resultObj = JSON.parse(result);
+
+            if(resultObj.status == 'OK'){
+
+            }
+        }
+    });
+    //HASTA AQUI
 }
 
 

@@ -63,6 +63,7 @@
 
     <div class="container margin-bottom-20">
         <div class="row d-flex flex-row-reverse bd-highlight">
+            <div id= "filtreCat"></div>
             <div id= "afegir"></div>
         </div>
     </div>
