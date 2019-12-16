@@ -9,6 +9,10 @@ CREATE TABLE IF NOT EXISTS usuari(
   contrasenya VARCHAR(40)
 );
 
+CREATE TABLE IF NOT EXISTS categoria(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(30)
+);
 
 CREATE TABLE IF NOT EXISTS experiencia(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -20,20 +24,9 @@ CREATE TABLE IF NOT EXISTS experiencia(
   valoracioPos INT(6) DEFAULT 0,
   valoracioNeg INT(6) DEFAULT 0,
   fecha_publ DATETIME,
-  id_us INT,
-  FOREIGN KEY (id_us) REFERENCES usuari (id)
-);
-
-CREATE TABLE IF NOT EXISTS categoria(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nom VARCHAR(30)
-);
-
-CREATE TABLE IF NOT EXISTS contiene(
-  id_exp INT,
+  id_us INT, 
   id_cat INT,
-  PRIMARY KEY(id_exp, id_cat),
-  FOREIGN KEY (id_exp) REFERENCES experiencia (id),
+  FOREIGN KEY (id_us) REFERENCES usuari (id),
   FOREIGN KEY (id_cat) REFERENCES categoria (id)
 );
 
@@ -61,21 +54,3 @@ INSERT INTO experiencia (id, titol, contingut, imatge, coordenadas, estat, valor
   (6, 'festa'),
   (7, 'platja'),
   (8, 'cultural');
-
-  INSERT INTO contiene (id_exp, id_cat) VALUES
-  (1, 1),
-  (1, 2),
-  (1, 7),
-  (2, 1),
-  (2, 2),
-  (2, 7),
-  (3, 3),
-  (3, 8),
-  (4, 4),
-  (4, 8),
-  (5, 7),
-  (6, 1),
-  (6, 6),
-  (6, 7),
-  (7, 1),
-  (7, 5);
