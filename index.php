@@ -33,7 +33,7 @@
                 <img id="logo" src="logos/logo.png">
             </div>
             <div class="col-sm-4"></div>
-            <div class="col-sm-4" id="headerRight">
+            <div class="col-sm-4" id="headerRight" style="margin-top: 5px;">
 
             </div>
         </div>
@@ -62,8 +62,9 @@
     <div class="display-4 margin-bottom-20">Últimes experiències</div>
 
     <div class="container margin-bottom-20">
-        <div class="row d-flex flex-row-reverse bd-highlight">
+        <div class="row d-flex flex-row-reverse bd-highlight col-12">
             <div id= "afegir"></div>
+            <div id="ordenacio" class="col-4 row"></div>
         </div>
     </div>
     <div class="container">

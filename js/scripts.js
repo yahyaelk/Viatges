@@ -25,6 +25,9 @@ function printNoLogged() {
     $('#headerRight').html('<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>'+
     '<button type="button" id= "registrar" class="btn btn-secondary">Registrarse</button>');
 
+    $('#afegir').html('');
+    $('#ordenacio').html('');
+
 }
 
 function printLogged() {
@@ -32,6 +35,18 @@ function printLogged() {
 
     $('#headerRight').html('<button id="btnSortir" type="button" class="btn btn-secondary">Sortir</button>');
     $('#afegir').html('<button id="btnAfegir" type="button" class="btn btn-primary">Afegir experiència</button>');
+    $('#ordenacio').html('<div class="col-6 padding-8-4">'+
+                        '<select class="form-control" id="selectOrdTipo">'+
+                            '<option value="data">Data</option>'+
+                            '<option value="puntuacio">Puntuació</option>'+
+                        '</select>'+
+                    '</div>'+
+                    '<div class="col-6 padding-4-8">'+
+                        '<select class="form-control" id="selectAscDesc">'+
+                            '<option value="asc">Ascendent</option>'+
+                            '<option value="desc">Descendent</option>'+
+                        '</select>'+
+                    '</div>');
 
     $.ajax({
         url: "model/getExperiencies.php",
@@ -39,39 +54,43 @@ function printLogged() {
         success: function(result){
             var resultObj = JSON.parse(result);
 
-            var experienciesDiv = $('#experiencies');
-            experienciesDiv.html('');
-
-            for(let i = 0; i< resultObj.length; i++){
-                var experiencia = resultObj[i];
-                
-                var fecha = new Date(experiencia['fecha_publ']);
-
-                experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 margin-bottom-20">'+
-                    '<div class="card" style="width: 18rem;">'+
-                        '<img class="card-img-top" src="' +experiencia['imatge']+ '" alt="Card image cap">'+
-                        '<div class="card-body">'+
-                            '<h5 class="card-title">'+experiencia['titol']+'</h5>'+
-                            '<p class="card-text"><small class="text-muted">'+fecha.getUTCDay()+'-'+fecha.getUTCMonth()+'-'+fecha.getUTCFullYear()+'</small></p>'+
-                            '<p class="card-text">'+experiencia['contingut']+'</p>'+
-                        '</div>'+
-                        '<div class="card-footer d-flex justify-content-between">'+
-                            '<div class="col-6">'+
-                                '<button class="like" id="like'+experiencia['id']+'"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>'+
-                                '<div class="color-cyan" id="countLikes'+experiencia['id']+'">'+experiencia['valoracioPos']+'</div>'+
-                            '</div>'+
-                            '<div class="col-6">'+
-                            '<button class="dislike" id="dislike'+experiencia['id']+'"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>'+
-                            '<div class="color-red" id="countDislikes'+experiencia['id']+'">'+experiencia['valoracioNeg']+'</div>'+
-                            '</div>'+
-                        '</div>'+
-                        '</div>'+
-                    '</div>');
-            }
-
+            printExperiencies(resultObj);
         }
     });
 }
+
+function printExperiencies(experiencies){
+
+    var experienciesDiv = $('#experiencies');
+    experienciesDiv.html('');
+
+    for(let i = 0; i< experiencies.length; i++){
+        var experiencia = experiencies[i];
+        
+        var fecha = new Date(experiencia['fecha_publ']);
+
+        experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 margin-bottom-20">'+
+            '<div class="card" style="width: 18rem;">'+
+                '<img class="card-img-top" src="' +experiencia['imatge']+ '" alt="Card image cap">'+
+                '<div class="card-body">'+
+                    '<h5 class="card-title">'+experiencia['titol']+'</h5>'+
+                    '<p class="card-text"><small class="text-muted">'+fecha.getUTCDay()+'-'+fecha.getUTCMonth()+'-'+fecha.getUTCFullYear()+'</small></p>'+
+                    '<p class="card-text">'+experiencia['contingut']+'</p>'+
+                '</div>'+
+                '<div class="card-footer d-flex justify-content-between">'+
+                    '<div class="col-6">'+
+                        '<button class="like" id="like'+experiencia['id']+'"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>'+
+                        '<div class="color-cyan" id="countLikes'+experiencia['id']+'">'+experiencia['valoracioPos']+'</div>'+
+                    '</div>'+
+                    '<div class="col-6">'+
+                    '<button class="dislike" id="dislike'+experiencia['id']+'"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>'+
+                    '<div class="color-red" id="countDislikes'+experiencia['id']+'">'+experiencia['valoracioNeg']+'</div>'+
+                    '</div>'+
+                '</div>'+
+                '</div>'+
+            '</div>');
+    }
+};
 
 
 $(document).ready(function(){
@@ -176,9 +195,40 @@ $(document).ready(function(){
         }
         
     });
+
+    $('#ordenacio').on('change', '#selectOrdTipo', (function() {
+        var tipo = $(this).val();
+        var orden = $('#selectAscDesc').val();
+
+        ajaxOrdenacio(tipo, orden);
+
+    }));
+
+    $('#ordenacio').on('change', '#selectAscDesc', (function() {
+        var tipo = $('#selectOrdTipo').val();
+        var orden = $(this).val();
+
+        ajaxOrdenacio(tipo, orden);
+
+    }));
 });
 
-  
+function ajaxOrdenacio(dataPunt, ascDesc){
+    $.ajax({
+        url: "model/ordenarExperiencies.php",
+        type: "post",
+        data: {
+            dataPunt : dataPunt,
+            ascDesc : ascDesc
+        },
+        success: function(result){
+            var resultObj = JSON.parse(result);
+            
+            printExperiencies(resultObj);
+
+        }
+    });
+} 
 
 $('#afegir').on('click', '#btnAfegir', (function() {
     $.ajax({
