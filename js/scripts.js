@@ -49,7 +49,7 @@ function printLogged() {
 
                 experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 margin-bottom-20">'+
                     '<div class="card" style="width: 18rem;">'+
-                        '<img class="card-img-top" src="img/card.jpg" alt="Card image cap">'+
+                        '<img class="card-img-top" src="' +experiencia['imatge']+ '" alt="Card image cap">'+
                         '<div class="card-body">'+
                             '<h5 class="card-title">'+experiencia['titol']+'</h5>'+
                             '<p class="card-text"><small class="text-muted">'+fecha.getUTCDay()+'-'+fecha.getUTCMonth()+'-'+fecha.getUTCFullYear()+'</small></p>'+
@@ -190,35 +190,61 @@ $('#afegir').on('click', '#btnAfegir', (function() {
                         '<input type="text" id="inputData" class="form-control" placeholder="Data" required>'+
                         '<label for="inputText" class="sr-only">Text</label>'+
                         '<input type="text" id="inputText" class="form-control" placeholder="Text" required>'+
-                        '<label for="inputCat" class="sr-only">Categoría</label>'+
-                        '<input type="text" id="inputCat" class="form-control" placeholder="Categoria" required>'+
                         '<input type="button" id= "afegirExp" value= "Afegir">'+
                     '</form>');
 }));
+function formatData($fecha){
+    if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$fecha)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 $('#formulariExp').on('click', '#afegirExp', (function() {
     console.log ("entra");
     var titol = $('#inputTitol').val();
     var fecha = $('#inputData').val();
     var text = $('#inputText').val();
-    var categoria = $('#inputCat').val();
 
-    $.ajax({
-        url: "model/afegir.php",
-        type: "post",
-        data: {
-            titol: titol,
-            fecha: fecha,
-            text: text,
-            categoria:categoria
-        },
-        success: function(result){
-            var resultat = JSON.parse(result);
-            if (resultat.status == 'OK'){
-                console.log ("s'ha afegit");
+    var correcto = true;
+
+    var titolRes= $('#titolRes');
+    titolRes.html('');
+    var fechaRes= $('#fechaRes');
+    fechaRes.html('');
+    var textRes= $('#textRes');
+    textRes.html('');
+
+
+    if(titol.length > 50 || titol.length==0){
+        titolRes.html('Títol incorrecte');
+        correcto = false;
+    }
+    if(!formatData($fecha)){
+        fechaRes.html('Data incorrecte');
+        correcto = false;
+    }
+
+    if(text.length>400 || text.length==0){
+        textRes.html('Data incorrecte');
+        correcto = false;
+    }
+
+    if(correcto){
+        $.ajax({
+            url: "model/afegir.php",
+            type: "post",
+            data: {
+                titol: titol,
+                fecha: fecha,
+                text: text
+            },
+            success: function(){
+                $('#formulariExp').modal('hide');
             }
-        }
-    });
+        });
+    }
 }));
 
     
