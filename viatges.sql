@@ -24,10 +24,21 @@ CREATE TABLE IF NOT EXISTS experiencia(
   valoracioPos INT(6) DEFAULT 0,
   valoracioNeg INT(6) DEFAULT 0,
   fecha_publ DATETIME,
-  id_us INT, 
+  id_us INT,
+  FOREIGN KEY (id_us) REFERENCES usuari (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS categoria(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(30)
+);
+
+CREATE TABLE IF NOT EXISTS contiene(
+  id_exp INT,
   id_cat INT,
-  FOREIGN KEY (id_us) REFERENCES usuari (id),
-  FOREIGN KEY (id_cat) REFERENCES categoria (id)
+  PRIMARY KEY(id_exp, id_cat),
+  FOREIGN KEY (id_exp) REFERENCES experiencia (id) ON DELETE CASCADE,
+  FOREIGN KEY (id_cat) REFERENCES categoria (id) ON DELETE CASCADE
 );
 
 INSERT INTO usuari (id, nom, contrasenya) VALUES
