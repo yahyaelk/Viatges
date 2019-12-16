@@ -22,6 +22,7 @@ function printNoLogged() {
     });
 
     $('#myModal').modal('hide');
+    $('#myModalExp').modal('hide');
     $('#headerRight').html('<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>'+
     '<button type="button" id= "registrar" class="btn btn-secondary">Registrarse</button>');
 
@@ -29,6 +30,7 @@ function printNoLogged() {
 
 function printLogged() {
     $('#myModal').modal('hide');
+    $('#myModalExp').modal('hide');
 
     $('#headerRight').html('<button id="btnSortir" type="button" class="btn btn-secondary">Sortir</button>');
     $('#afegir').html('<button id="btnAfegir" type="button" class="btn btn-primary">Afegir experiència</button>');
@@ -181,39 +183,10 @@ $(document).ready(function(){
   
 
 $('#afegir').on('click', '#btnAfegir', (function() {
-    $.ajax({
-        url: "model/getCategories.php",
-        type: "post",
-        success: function(result){
-            var resultObj = JSON.parse(result);
-            
-            if(resultObj.status == 'OK'){
-                var html = '<form class="form-signin">'+
-                '<label for="inputTitol" class="sr-only">Títol</label>'+
-                '<input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>'+
-                '<label for="inputData" class="sr-only">Data</label>'+
-                '<input type="text" id="inputData" class="form-control" placeholder="Data" required>'+
-                '<label for="inputText" class="sr-only">Text</label>'+
-                '<input type="text" id="inputText" class="form-control" placeholder="Text" required>'+
-                '<select id="inputCat" class="form-control">';
-
-                for(var i = 0;i < resultObj.datos.length; i++){
-                    var categoria = resultObj.datos[i];
-
-                    html +='<option value="'+categoria['id']+'">'+categoria['nom']+'</option>';
-                }
-
-                html+='</select>'+
-                    '<input type="button" id= "afegirExp" value= "Afegir">'+
-                    '</form>';
-                    $('#formulariExp').html(html);
-            }
-
-        }
-    });
+    $('#myModalExp').modal('show');
 }));
 
-$('#formulariExp').on('click', '#afegirExp', (function() {
+$('#myModalExp').on('click', '#afegirExp', (function() {
     var regData= /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
     var titol = $('#inputTitol').val();
