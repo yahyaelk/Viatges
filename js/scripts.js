@@ -212,16 +212,10 @@ $('#afegir').on('click', '#btnAfegir', (function() {
         }
     });
 }));
-function formatData($fecha){
-    if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$fecha)) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 $('#formulariExp').on('click', '#afegirExp', (function() {
-    console.log ("entra");
+    var regData= /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
     var titol = $('#inputTitol').val();
     var fecha = $('#inputData').val();
     var text = $('#inputText').val();
@@ -240,13 +234,15 @@ $('#formulariExp').on('click', '#afegirExp', (function() {
         titolRes.html('Títol incorrecte');
         correcto = false;
     }
-    if(!formatData($fecha)){
+    if(!regData.test(fecha)){
+        console.log("entra fecha");
         fechaRes.html('Data incorrecte');
         correcto = false;
     }
 
     if(text.length>400 || text.length==0){
-        textRes.html('Data incorrecte');
+        console.log("entra text");
+        textRes.html('Text incorrecte');
         correcto = false;
     }
 
