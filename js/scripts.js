@@ -43,8 +43,8 @@ function printLogged() {
                     '</div>'+
                     '<div class="col-6 padding-4-8">'+
                         '<select class="form-control" id="selectAscDesc">'+
-                            '<option value="asc">Ascendent</option>'+
                             '<option value="desc">Descendent</option>'+
+                            '<option value="asc">Ascendent</option>'+
                         '</select>'+
                     '</div>');
 
@@ -88,6 +88,7 @@ function printExperiencies(experiencies){
         var experiencia = experiencies[i];
         
         var fecha = new Date(experiencia['fecha_publ']);
+        console.log(fecha.getUTCDay());
 
         experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 margin-bottom-20">'+
             '<div class="card" style="width: 18rem;">'+
@@ -267,7 +268,7 @@ function ajaxOrdenacio(dataPunt, ascDesc){
 
         }
     });
-} 
+};
 
 $('#afegir').on('click', '#btnAfegir', (function() {
     $.ajax({
