@@ -2,8 +2,13 @@
 
 abstract class Conexio {
   private static $db_host = "localhost";
+<<<<<<< HEAD
   private static $db_user = "a18sonvargar";
   private static $db_pass = "a18sonvargar7";
+=======
+  private static $db_user = "laia";
+  private static $db_pass = "laia";
+>>>>>>> 3495d0477e469bbbd83d35ac11d318828f1d41a6
 
   protected $db_name;
 
