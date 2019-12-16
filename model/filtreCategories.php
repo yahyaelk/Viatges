@@ -4,9 +4,9 @@ require_once('Categoria.php');
 
 $categoria =  $_REQUEST['categoria'];
 
-$categoria = new Categoria();
+$objCategoria = new Categoria();
 
-$categories = $categoria->filtreCategories();
+$categories = $objCategoria->filtreCategories($categoria);
 
 if(!empty($categories)){
     $response =  array("status" => "OK", "datos" =>  $categories);   

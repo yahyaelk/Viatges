@@ -75,21 +75,7 @@ function printLogged() {
             }
         }
     });
-    var categoria= $( "#filtreCat" ).val();
-    $.ajax({
-        url: "model/filtreCategories.php",
-        type: "post",
-        data: {
-            categoria: categoria
-        },
-        success: function(result){
-            var resultObj = JSON.parse(result);
-
-            if(resultObj.status == 'OK'){
-
-            }
-        }
-    });
+    
     //HASTA AQUI
 }
 
@@ -235,7 +221,7 @@ $(document).ready(function(){
         var orden = $('#selectAscDesc').val();
 
         ajaxOrdenacio(tipo, orden);
-
+        
     }));
 
     $('#ordenacio').on('change', '#selectAscDesc', (function() {
@@ -244,6 +230,25 @@ $(document).ready(function(){
 
         ajaxOrdenacio(tipo, orden);
 
+    }));
+
+    $('#filtreCat').on('change', '#inputCat', (function() {
+        var categoria= $(this).val();
+
+        $.ajax({
+            url: "model/filtreCategories.php",
+            type: "post",
+            data: {
+                categoria: categoria
+            },
+            success: function(result){
+                var resultObj = JSON.parse(result);
+    
+                if(resultObj.status == 'OK'){
+                    printExperiencies(resultObj.datos);
+                }
+            }
+        });
     }));
 });
 
