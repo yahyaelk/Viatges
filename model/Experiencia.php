@@ -61,19 +61,25 @@ class Experiencia extends Conexio {
         return false;
     }
 
-    public function selectExperienciesOrdenades($dataPunt, $ascDesc) {
+    public function selectExperienciesOrdenades($dataPunt, $ascDesc, $categoria) {
         $querySelectExp = "";
+        $where = "";
+
+        if($categoria != "todas"){
+            $where = "WHERE id_cat = $categoria";
+        }
+
         if($dataPunt == 'data'){
             if($ascDesc == 'asc'){
-                $querySelectExp = "SELECT * FROM experiencia ORDER BY fecha_publ ASC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY fecha_publ ASC LIMIT 3";
             }else if($ascDesc == 'desc'){
-                $querySelectExp = "SELECT * FROM experiencia ORDER BY fecha_publ DESC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY fecha_publ DESC LIMIT 3";
             }
         }else if($dataPunt == 'puntuacio'){
             if($ascDesc == 'asc'){
-                $querySelectExp = "SELECT * FROM experiencia ORDER BY (valoracioPos - valoracioNeg) ASC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY (valoracioPos - valoracioNeg) ASC LIMIT 3";
             }else if($ascDesc == 'desc'){
-                $querySelectExp = "SELECT * FROM experiencia ORDER BY (valoracioPos - valoracioNeg) DESC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY (valoracioPos - valoracioNeg) DESC LIMIT 3";
             }
         }
         $this->query = $querySelectExp;
