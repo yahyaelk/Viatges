@@ -72,6 +72,9 @@
         </div>
     </div>
     <div id= "formulariExp"></div>
+    <p id= "titolRes"></p>
+    <p id= "fechaRes"></p>
+    <p id= "textRes"></p>
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
