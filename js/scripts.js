@@ -181,17 +181,36 @@ $(document).ready(function(){
   
 
 $('#afegir').on('click', '#btnAfegir', (function() {
-    var formulariExpDiv = $('#formulariExp');
-    formulariExpDiv.html('');
-    formulariExpDiv.html(formulariExpDiv.html() + '<form class="form-signin">'+
-                        '<label for="inputTitol" class="sr-only">Títol</label>'+
-                        '<input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>'+
-                        '<label for="inputData" class="sr-only">Data</label>'+
-                        '<input type="text" id="inputData" class="form-control" placeholder="Data" required>'+
-                        '<label for="inputText" class="sr-only">Text</label>'+
-                        '<input type="text" id="inputText" class="form-control" placeholder="Text" required>'+
-                        '<input type="button" id= "afegirExp" value= "Afegir">'+
-                    '</form>');
+    $.ajax({
+        url: "model/getCategories.php",
+        type: "post",
+        success: function(result){
+            var resultObj = JSON.parse(result);
+            
+            if(resultObj.status == 'OK'){
+                var html = '<form class="form-signin">'+
+                '<label for="inputTitol" class="sr-only">Títol</label>'+
+                '<input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>'+
+                '<label for="inputData" class="sr-only">Data</label>'+
+                '<input type="text" id="inputData" class="form-control" placeholder="Data" required>'+
+                '<label for="inputText" class="sr-only">Text</label>'+
+                '<input type="text" id="inputText" class="form-control" placeholder="Text" required>'+
+                '<select id="inputCat" class="form-control">';
+
+                for(var i = 0;i < resultObj.datos.length; i++){
+                    var categoria = resultObj.datos[i];
+
+                    html +='<option value="'+categoria['id']+'">'+categoria['nom']+'</option>';
+                }
+
+                html+='</select>'+
+                    '<input type="button" id= "afegirExp" value= "Afegir">'+
+                    '</form>';
+                    $('#formulariExp').html(html);
+            }
+
+        }
+    });
 }));
 function formatData($fecha){
     if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$fecha)) {
