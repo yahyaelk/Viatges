@@ -21,13 +21,10 @@ CREATE TABLE IF NOT EXISTS experiencia(
   valoracioNeg INT(6) DEFAULT 0,
   fecha_publ DATETIME,
   id_us INT,
-<<<<<<< HEAD
   id_cat INT,
   FOREIGN KEY (id_us) REFERENCES usuari (id),
   FOREIGN KEY (id_cat) REFERENCES categoria (id)
-=======
   FOREIGN KEY (id_us) REFERENCES usuari (id) ON DELETE CASCADE
->>>>>>> 168ee9db3095f55b915b43f8ab18a09758b77397
 );
 
 CREATE TABLE IF NOT EXISTS categoria(
