@@ -112,7 +112,7 @@
                 <div class="modal-body">
                     <form class="form-signin">
                         <label for="inputTitol" class="sr-only">Títol</label>
-                        <input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>
+                        <input type="text" id="inputTitol" class="form-control" placeholder="Titol" required>
                         <label for="inputData" class="sr-only">Data</label>
                         <input type="text" id="inputData" class="form-control" placeholder="Data" required>
                         <label for="inputText" class="sr-only">Text</label>
