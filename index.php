@@ -112,10 +112,10 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-signin">
-                        <label for="inputUser" class="sr-only">User</label>
-                        <input type="text" id="inputUser" class="form-control" placeholder="User" required autofocus>
-                        <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <label for="inputUserReg" class="sr-only">User</label>
+                        <input type="text" id="inputUserReg" class="form-control" placeholder="User" required autofocus>
+                        <label for="inputPasswordReg" class="sr-only">Password</label>
+                        <input type="password" id="inputPasswordReg" class="form-control" placeholder="Password" required>
                     </form>
                     <p id="messageReg"></p>
                 </div>
