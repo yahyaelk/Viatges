@@ -83,7 +83,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <h1 class="modal-title h3 mb-3 font-weight-normal">Inicia sessió</h1>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -97,6 +97,30 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="botoIni" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalRegist" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title h3 mb-3 font-weight-normal">Registra't</h1>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-signin">
+                        <label for="inputUser" class="sr-only">User</label>
+                        <input type="text" id="inputUser" class="form-control" placeholder="User" required autofocus>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    </form>
+                    <p id="messageReg"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="botoRegistrar" class="btn btn-lg btn-primary btn-block">Register</button>
                 </div>
             </div>
         </div>

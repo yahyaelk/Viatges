@@ -2,6 +2,36 @@ $('#iniciarSessio').click(function(){
     $('#myModal').modal('show');
 });
 
+$('#registrar').click(function(){
+    $('#modalRegist').modal('show');
+});
+
+$('#modalRegist').on('click', '#botoRegistrar', function(){
+    var username = $('#inputUser').val();
+    var password = $('#inputPassword').val();
+    if ()
+    $.ajax({
+        url: "model/register.php",
+        type: "post",
+        data: {
+            username: username,
+            password: password
+        },
+        success: function(result){
+            var resultObj = JSON.parse(result);
+            var msg= "";
+
+            if(resultObj.status == 'OK'){
+                printLogged();
+            }else{
+                msg= "Invalid username and password";
+            }
+
+            $("#message").html(msg);
+        }
+    });
+});
+
 function printNoLogged() {
     $.ajax({
         url: "model/getExperiencies.php",
@@ -23,7 +53,7 @@ function printNoLogged() {
 
     $('#myModal').modal('hide');
     $('#headerRight').html('<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>'+
-    '<button type="button" id= "registrar" class="btn btn-secondary">Registrarse</button>');
+    '<button type="button" id= "registrar" class="btn btn-secondary" data-toggle="modal" data-target="#modalRegist">Registrarse</button>');
 
     $('#afegir').html('');
     $('#ordenacio').html('');
