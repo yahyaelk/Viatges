@@ -308,6 +308,7 @@ $('#myModalExp').on('click', '#afegirExp', (function() {
     var titol = $('#inputTitol').val();
     var fecha = $('#inputData').val();
     var text = $('#inputText').val();
+    var cat = $('#inputCatNou').val();
 
     var correcto = true;
 
@@ -320,6 +321,7 @@ $('#myModalExp').on('click', '#afegirExp', (function() {
 
 
     if(titol.length > 50 || titol.length==0){
+        console.log("entra titol");
         titolRes.html('Títol incorrecte');
         correcto = false;
     }
@@ -342,10 +344,11 @@ $('#myModalExp').on('click', '#afegirExp', (function() {
             data: {
                 titol: titol,
                 fecha: fecha,
-                text: text
+                text: text,
+                cat: cat
             },
             success: function(){
-                $('#formulariExp').modal('hide');
+                $('#myModalExp').modal('hide');
             }
         });
     }

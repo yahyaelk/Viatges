@@ -81,7 +81,7 @@ body{
     margin-bottom: 20px !important;
 }
 
-#message{
+.message-error{
     color: red;
 }
 

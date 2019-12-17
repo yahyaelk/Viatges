@@ -73,10 +73,6 @@
 
         </div>
     </div>
-    <div id= "formulariExp"></div>
-    <p id= "titolRes"></p>
-    <p id= "fechaRes"></p>
-    <p id= "textRes"></p>
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -93,7 +89,7 @@
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                     </form>
-                    <p id="message"></p>
+                    <p id="message" class="message-error"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="botoIni" class="btn btn-lg btn-primary btn-block">Sign in</button>
@@ -113,27 +109,27 @@
                     <form class="form-signin">
                         <label for="inputTitol" class="sr-only">Títol</label>
                         <input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>
+                        <p id= "titolRes" class="message-error"></p>
                         <label for="inputData" class="sr-only">Data</label>
                         <input type="text" id="inputData" class="form-control" placeholder="Data" required>
+                        <p id= "fechaRes" class="message-error"></p>
                         <label for="inputText" class="sr-only">Text</label>
                         <textarea type="text" rows="4" id="inputText" class="form-control" placeholder="Text" required></textarea>
-                        <select id="inputCat" class="form-control">
+                        <p id= "textRes" class="message-error"></p>
+                        <select id="inputCatNou" class="form-control">
                             <?php
                                 require_once('model/Categoria.php');
                                 $categoria = new Categoria();
                                 $categories = $categoria->selectTotesCategories();
                                 foreach ($categories as $cat){
-                                    echo '<option value=';
-                                    echo $cat['id'];
-                                    echo '>categoria[';
-                                    echo $cat['nom'];
-                                    echo ']</option>';
+                                    echo '<option value='.$cat['id'].'>'.$cat['nom'].'</option>';
                                 }
                             ?>
                         </select>
-                        <input type="button" id= "afegirExp" value= "Afegir">
                     </form>
-                <p id="message"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="afegirExp" class="btn btn-lg btn-primary btn-block">Afegir</button>
                 </div>
             </div>
         </div>
@@ -154,7 +150,7 @@
                         <label for="inputPasswordReg" class="sr-only">Password</label>
                         <input type="password" id="inputPasswordReg" class="form-control" placeholder="Password" required>
                     </form>
-                    <p id="messageReg"></p>
+                    <p id="messageReg" class="message-error"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="botoRegistrar" class="btn btn-lg btn-primary btn-block">Register</button>
