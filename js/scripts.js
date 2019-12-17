@@ -2,6 +2,36 @@ $('#iniciarSessio').click(function(){
     $('#myModal').modal('show');
 });
 
+$('#registrar').click(function(){
+    $('#modalRegist').modal('show');
+});
+
+$('#modalRegist').on('click', '#botoRegistrar', function(){
+    var username = $('#inputUser').val();
+    var password = $('#inputPassword').val();
+    if ()
+    $.ajax({
+        url: "model/register.php",
+        type: "post",
+        data: {
+            username: username,
+            password: password
+        },
+        success: function(result){
+            var resultObj = JSON.parse(result);
+            var msg= "";
+
+            if(resultObj.status == 'OK'){
+                printLogged();
+            }else{
+                msg= "Invalid username and password";
+            }
+
+            $("#message").html(msg);
+        }
+    });
+});
+
 function printNoLogged() {
     $.ajax({
         url: "model/getExperiencies.php",
@@ -24,7 +54,7 @@ function printNoLogged() {
     $('#myModal').modal('hide');
     $('#myModalExp').modal('hide');
     $('#headerRight').html('<button type="button" id="iniciarSessio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Inicia Sessió</button>'+
-    '<button type="button" id= "registrar" class="btn btn-secondary">Registrarse</button>');
+    '<button type="button" id= "registrar" class="btn btn-secondary" data-toggle="modal" data-target="#modalRegist">Registrarse</button>');
 
     $('#afegir').html('');
     $('#ordenacio').html('');
@@ -91,14 +121,13 @@ function printExperiencies(experiencies){
         var experiencia = experiencies[i];
         
         var fecha = new Date(experiencia['fecha_publ']);
-        console.log(fecha.getUTCDay());
 
         experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 margin-bottom-20">'+
             '<div class="card" style="width: 18rem;">'+
                 '<img class="card-img-top" src="' +experiencia['imatge']+ '" alt="Card image cap">'+
                 '<div class="card-body">'+
                     '<h5 class="card-title">'+experiencia['titol']+'</h5>'+
-                    '<p class="card-text"><small class="text-muted">'+fecha.getUTCDay()+'-'+fecha.getUTCMonth()+'-'+fecha.getUTCFullYear()+'</small></p>'+
+                    '<p class="card-text"><small class="text-muted">'+fecha.getDate()+'-'+(fecha.getMonth() + 1)+'-'+fecha.getFullYear()+'</small></p>'+
                     '<p class="card-text">'+experiencia['contingut']+'</p>'+
                 '</div>'+
                 '<div class="card-footer d-flex justify-content-between">'+
@@ -223,46 +252,38 @@ $(document).ready(function(){
     $('#ordenacio').on('change', '#selectOrdTipo', (function() {
         var tipo = $(this).val();
         var orden = $('#selectAscDesc').val();
+        var categoria= $('#inputCat').val();
 
-        ajaxOrdenacio(tipo, orden);
+        ajaxOrdenacio(tipo, orden, categoria);
         
     }));
 
     $('#ordenacio').on('change', '#selectAscDesc', (function() {
         var tipo = $('#selectOrdTipo').val();
         var orden = $(this).val();
+        var categoria= $('#inputCat').val();
 
-        ajaxOrdenacio(tipo, orden);
+        ajaxOrdenacio(tipo, orden, categoria);
 
     }));
 
     $('#filtreCat').on('change', '#inputCat', (function() {
+        var tipo = $('#selectOrdTipo').val();
+        var orden = $('#selectAscDesc').val();
         var categoria= $(this).val();
 
-        $.ajax({
-            url: "model/filtreCategories.php",
-            type: "post",
-            data: {
-                categoria: categoria
-            },
-            success: function(result){
-                var resultObj = JSON.parse(result);
-    
-                if(resultObj.status == 'OK'){
-                    printExperiencies(resultObj.datos);
-                }
-            }
-        });
+        ajaxOrdenacio(tipo, orden, categoria);
     }));
 });
 
-function ajaxOrdenacio(dataPunt, ascDesc){
+function ajaxOrdenacio(dataPunt, ascDesc, categoria){
     $.ajax({
         url: "model/ordenarExperiencies.php",
         type: "post",
         data: {
             dataPunt : dataPunt,
-            ascDesc : ascDesc
+            ascDesc : ascDesc,
+            categoria : categoria
         },
         success: function(result){
             var resultObj = JSON.parse(result);
