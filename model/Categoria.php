@@ -13,6 +13,11 @@ class Categoria extends Conexio {
         $this->get_results_from_query();
 
     }
+    public function generarCategoria($categoria){
+        $this->query = "INSERT INTO categoria (nom) VALUES ('$categoria')";
+        $this->execute_single_query();
+
+    }
 
     public function selectTotesCategories(){
         $this->query = "SELECT * FROM categoria";

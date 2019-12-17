@@ -6,7 +6,9 @@ $('#adminCat').click(function(){
             var resultObj = JSON.parse(result);
 
             if(resultObj.status=='OK'){
-                let html="<button id='newCat'>Nova categoria<button><div id='categories'";
+                let html='<input type="submit" id="newCat" value="nova categoria">'+
+                '<input type="text" id="nuevaCat" placeholder="categoria" required>'+
+                '<div id="categories"';
                 for(let i=0; i<resultObj.datos.length; i++){
                     let categoria=resultObj.datos[i];
                     html+='<label><input class="categoria" type="checkbox" name="categorias" value="'+categoria['id']+'">'+categoria['nom']+'</label><br>';
@@ -19,7 +21,15 @@ $('#adminCat').click(function(){
     });
 });
 $('#contenido').on('click', '#newCat', function(){
-    
+    let categ= $('#nuevaCat').val();
+
+    if(categ.length > 30 || categ.length==0){
+        alert("Error, categoria no valida");
+    }else{
+        novaCat(categ);
+        alert("S'ha creat una nova categoria");
+        location.reload();
+    }
 });
 
 $('#contenido').on('click', '#eliminarCat', function(){
@@ -37,6 +47,16 @@ $('#contenido').on('click', '#eliminarCat', function(){
      location.reload();
 });
 
+function novaCat(categoria){
+    $.ajax({
+        url: "model/novaCat.php",
+        type: "post",
+        data: {
+            categoria : categoria
+        },
+    });
+};
+
 function eliminarCat(categoria){
     $.ajax({
         url: "model/eliminarCat.php",
@@ -46,6 +66,3 @@ function eliminarCat(categoria){
         },
     });
 };
-
-
-	
