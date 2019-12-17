@@ -8,6 +8,12 @@ class Categoria extends Conexio {
         $this->db_name = "viatges";
     }
 
+    public function eliminarCategoria($categoria){
+        $this->query = "DELETE FROM categoria WHERE id=$categoria";
+        $this->get_results_from_query();
+
+    }
+
     public function selectTotesCategories(){
         $this->query = "SELECT * FROM categoria";
         $this->get_results_from_query();
