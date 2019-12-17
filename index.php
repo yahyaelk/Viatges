@@ -101,6 +101,43 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="myModalExp" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title h3 mb-3 font-weight-normal">Nova experiencia</h1>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-signin">
+                        <label for="inputTitol" class="sr-only">Títol</label>
+                        <input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>
+                        <label for="inputData" class="sr-only">Data</label>
+                        <input type="text" id="inputData" class="form-control" placeholder="Data" required>
+                        <label for="inputText" class="sr-only">Text</label>
+                        <textarea type="text" rows="4" id="inputText" class="form-control" placeholder="Text" required></textarea>
+                        <select id="inputCat" class="form-control">
+                            <?php
+                                require_once('model/Categoria.php');
+                                $categoria = new Categoria();
+                                $categories = $categoria->selectTotesCategories();
+                                foreach ($categories as $cat){
+                                    echo '<option value=';
+                                    echo $cat['id'];
+                                    echo '>categoria[';
+                                    echo $cat['nom'];
+                                    echo ']</option>';
+                                }
+                            ?>
+                        </select>
+                        <input type="button" id= "afegirExp" value= "Afegir">
+                    </form>
+                <p id="message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="modalRegist" role="dialog">
         <div class="modal-dialog">
