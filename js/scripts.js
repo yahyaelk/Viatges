@@ -7,9 +7,9 @@ $('#registrar').click(function(){
 });
 
 $('#modalRegist').on('click', '#botoRegistrar', function(){
-    var username = $('#inputUser').val();
-    var password = $('#inputPassword').val();
-    if ()
+    var username = $('#inputUserReg').val();
+    var password = $('#inputPasswordReg').val();
+    //AQUI
     $.ajax({
         url: "model/register.php",
         type: "post",
@@ -18,16 +18,17 @@ $('#modalRegist').on('click', '#botoRegistrar', function(){
             password: password
         },
         success: function(result){
-            var resultObj = JSON.parse(result);
             var msg= "";
 
-            if(resultObj.status == 'OK'){
+            if(result == 'OK'){
                 printLogged();
+            }else if(result == "EXISTEIX"){
+                msg = "El nom d'usuari ja existeix";
             }else{
-                msg= "Invalid username and password";
+                msg= "Nom d'usuari o contrasenya incorrectes";
             }
 
-            $("#message").html(msg);
+            $("#messageReg").html(msg);
         }
     });
 });
@@ -58,11 +59,14 @@ function printNoLogged() {
 
     $('#afegir').html('');
     $('#ordenacio').html('');
+    $('#filtreCat').html('');
+    $('#modalRegist').modal('hide');
 
 }
 
 function printLogged() {
     $('#myModal').modal('hide');
+    $('#modalRegist').modal('hide');
     $('#myModalExp').modal('hide');
 
     $('#headerRight').html('<button id="btnSortir" type="button" class="btn btn-secondary">Sortir</button>');
