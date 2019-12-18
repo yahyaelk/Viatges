@@ -1,8 +1,8 @@
 <?php
 
 abstract class Conexio {
-  private static $db_host = "localhost";
-  private static $db_user = "yahya";
+  private static $db_host = "labs.iam.cat";
+  private static $db_user = "a17yahelekaj_pj2";
   private static $db_pass = "ausias";
 
   protected $db_name;
