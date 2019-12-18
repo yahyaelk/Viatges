@@ -9,7 +9,7 @@ class Experiencia extends Conexio {
     }
 
     public function selectUltimesExperiencies() {
-        $this->query = "SELECT * FROM experiencia ORDER BY fecha_publ DESC LIMIT 3";
+        $this->query = "SELECT * FROM experiencia ORDER BY fecha_publ DESC LIMIT 12";
         $this->get_results_from_query();
 
         if (count($this->rows)==1) {
@@ -76,15 +76,15 @@ class Experiencia extends Conexio {
 
         if($dataPunt == 'data'){
             if($ascDesc == 'asc'){
-                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY fecha_publ ASC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY fecha_publ ASC LIMIT 12";
             }else if($ascDesc == 'desc'){
-                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY fecha_publ DESC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY fecha_publ DESC LIMIT 12";
             }
         }else if($dataPunt == 'puntuacio'){
             if($ascDesc == 'asc'){
-                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY (valoracioPos - valoracioNeg) ASC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY (valoracioPos - valoracioNeg) ASC LIMIT 12";
             }else if($ascDesc == 'desc'){
-                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY (valoracioPos - valoracioNeg) DESC LIMIT 3";
+                $querySelectExp = "SELECT * FROM experiencia ".$where." ORDER BY (valoracioPos - valoracioNeg) DESC LIMIT 12";
             }
         }
         $this->query = $querySelectExp;
