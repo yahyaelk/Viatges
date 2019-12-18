@@ -29,11 +29,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-4 col-lg-4">
                 <img id="logo" src="logos/logo.png">
             </div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" id="headerRight" style="margin-top: 5px;">
+            <div class="col-1 col-lg-4"></div>
+            <div class="col-7 col-lg-4" id="headerRight" style="margin-top: 5px;">
 
             </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="row d-flex flex-row-reverse bd-highlight col-12">
             <div id= "afegir"></div>
             <div id= "filtreCat"></div>
-            <div id="ordenacio" class="col-4 row"></div>
+            <div id="ordenacio" class="col-10 col-md-8 col-lg-6 col-xl-4 row"></div>
         </div>
     </div>
     <div class="container">
