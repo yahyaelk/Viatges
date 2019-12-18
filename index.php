@@ -144,6 +144,29 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modalRegist" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title h3 mb-3 font-weight-normal">Registra't</h1>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-signin">
+                        <label for="inputUserReg" class="sr-only">User</label>
+                        <input type="text" id="inputUserReg" class="form-control" placeholder="User" required="" autofocus="">
+                        <label for="inputPasswordReg" class="sr-only">Password</label>
+                        <input type="password" id="inputPasswordReg" class="form-control" placeholder="Password" required="">
+                    </form>
+                    <p id="messageReg" class="message-error"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="botoRegistrar" class="btn btn-lg btn-primary btn-block">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer -->
 
     <footer class="page-footer font-small py-5">
