@@ -1,6 +1,5 @@
 body{
     background-color: #f4fafb;
-    padding:10px 20px;
 }
 .flexible{
     display: flex;
@@ -146,4 +145,8 @@ body{
 
 #filtreCat{
     padding-right: 8px;
+}
+.py-5{
+    background-color: #c4e4f4 !important;
+    width: 100%;
 }
