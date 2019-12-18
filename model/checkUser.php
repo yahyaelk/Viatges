@@ -6,7 +6,7 @@ include "conexio.php";
 class Usuari extends Conexio {
 
     function __construct() {
-        $this->db_name = "viatges";
+        $this->db_name = "a17yahelekaj_viatges";
     }
 
     public function iniciarSessio($username, $password) {

@@ -5,7 +5,7 @@ require_once('conexio.php');
 class Experiencia extends Conexio {
 
     function __construct() {
-        $this->db_name = "viatges";
+        $this->db_name = "a17yahelekaj_viatges";
     }
 
     public function selectUltimesExperiencies() {
