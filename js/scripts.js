@@ -46,7 +46,7 @@ function printNoLogged() {
             for(let i = 0; i< resultObj.length; i++){
                 var experiencia = resultObj[i];
 
-                experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 experiencia">' + experiencia['titol'] + '</div>');
+                experienciesDiv.html(experienciesDiv.html() + '<div class="col-lg-4 col-md-6 col-12 experiencia">' + experiencia['titol'] + '</div>');
             }
 
         }
@@ -126,7 +126,7 @@ function printExperiencies(experiencies){
         
         var fecha = new Date(experiencia['fecha_publ']);
 
-        experienciesDiv.html(experienciesDiv.html() + '<div class="col-4 margin-bottom-20">'+
+        experienciesDiv.html(experienciesDiv.html() + '<div class="col-lg-4 col-md-6 col-12 margin-bottom-20">'+
             '<div class="card" style="width: 18rem;">'+
                 '<img class="card-img-top" src="' +experiencia['imatge']+ '" alt="Card image cap">'+
                 '<div class="card-body">'+
