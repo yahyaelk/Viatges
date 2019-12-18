@@ -4,8 +4,8 @@ require_once('conexio.php');
 
 class Categoria extends Conexio {
 
-    function __construct() {
-        $this->db_name = "viatges";
+    function __construct() {    
+        $this->db_name = "a17yahelekaj_viatges";
     }
 
     public function eliminarCategoria($categoria){
