@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS experiencia(
   fecha_publ DATETIME,
   id_us INT,
   id_cat INT,
-  FOREIGN KEY (id_us) REFERENCES usuari (id) ON DELETE CASCADE,
-  FOREIGN KEY (id_cat) REFERENCES categoria (id) ON DELETE CASCADE
+  FOREIGN KEY (id_us) REFERENCES usuari (id) ON DELETE SET NULL,
+  FOREIGN KEY (id_cat) REFERENCES categoria (id) ON DELETE SET NULL
 );
 
 

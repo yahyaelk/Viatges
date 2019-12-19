@@ -1,6 +1,6 @@
 $('#adminCat').click(function(){
     $.ajax({
-        url: "model/getCategories.php",
+        url: "../model/getCategories.php",
         type: "post",
         success: function(result){
             var resultObj = JSON.parse(result);
@@ -49,7 +49,7 @@ $('#contenido').on('click', '#eliminarCat', function(){
 
 function novaCat(categoria){
     $.ajax({
-        url: "model/novaCat.php",
+        url: "../model/novaCat.php",
         type: "post",
         data: {
             categoria : categoria
@@ -59,7 +59,7 @@ function novaCat(categoria){
 
 function eliminarCat(categoria){
     $.ajax({
-        url: "model/eliminarCat.php",
+        url: "../model/eliminarCat.php",
         type: "post",
         data: {
             categoria : categoria

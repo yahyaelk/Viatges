@@ -32,13 +32,13 @@
 <body>
     <header id="main-header">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-4 col-lg-4">
-                <img id="logo" src="logos/logo.png">
-            </div>
-            <div class="col-1 col-lg-4"></div>
-            <div class="col-7 col-lg-4" id="headerRight" style="margin-top: 5px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-lg-4">
+                    <img id="logo" src="logos/logo.png">
+                </div>
+                <div class="col-1 col-lg-4"></div>
+                <div class="col-7 col-lg-4" id="headerRight" style="margin-top: 5px;">
 
                 </div>
             </div>
@@ -68,8 +68,8 @@
 
     <div class="container margin-bottom-20">
         <div class="row d-flex flex-row-reverse bd-highlight col-12">
-            <div id= "afegir"></div>
-            <div id= "filtreCat"></div>
+            <div id="afegir"></div>
+            <div id="filtreCat"></div>
             <div id="ordenacio" class="col-10 col-md-8 col-lg-6 col-xl-4 row"></div>
         </div>
     </div>
@@ -78,10 +78,6 @@
 
         </div>
     </div>
-    <div id="formulariExp"></div>
-    <p id="titolRes"></p>
-    <p id="fechaRes"></p>
-    <p id="textRes"></p>
 
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -98,7 +94,7 @@
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                     </form>
-                    <p id="message"></p>
+                    <p id="message" class= "message-error"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="botoIni" class="btn btn-lg btn-primary btn-block">Sign in</button>
@@ -118,128 +114,132 @@
                     <form class="form-signin">
                         <label for="inputTitol" class="sr-only">Títol</label>
                         <input type="text" id="inputTitol" class="form-control" placeholder="Titol" required autofocus>
+                        <p id="titolRes" class="message-error"></p>
                         <label for="inputData" class="sr-only">Data</label>
                         <input type="text" id="inputData" class="form-control" placeholder="Data" required>
+                        <p id="fechaRes" class="message-error"></p>
                         <label for="inputText" class="sr-only">Text</label>
                         <textarea type="text" rows="4" id="inputText" class="form-control" placeholder="Text"
                             required></textarea>
-                        <select id="inputCat" class="form-control">
+                        <p id="textRes" class="message-error"></p>
+                        <select id="inputCatNou" class="form-control">
                             <?php
                                 require_once('model/Categoria.php');
                                 $categoria = new Categoria();
                                 $categories = $categoria->selectTotesCategories();
                                 foreach ($categories as $cat){
-                                    echo '<option value=';
-                                    echo $cat['id'];
-                                    echo '>categoria[';
-                                    echo $cat['nom'];
-                                    echo ']</option>';
+                                    echo '<option value='.$cat['id'].'>'.$cat['nom'].'</option>';
                                 }
                             ?>
                         </select>
-                        <input type="button" id="afegirExp" value="Afegir">
                     </form>
-                    <p id="message"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modalRegist" role="dialog" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title h3 mb-3 font-weight-normal">Registra't</h1>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-                <div class="modal-body">
-                    <form class="form-signin">
-                        <label for="inputUserReg" class="sr-only">User</label>
-                        <input type="text" id="inputUserReg" class="form-control" placeholder="User" required="" autofocus="">
-                        <label for="inputPasswordReg" class="sr-only">Password</label>
-                        <input type="password" id="inputPasswordReg" class="form-control" placeholder="Password" required="">
-                    </form>
-                    <p id="messageReg" class="message-error"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="botoRegistrar" class="btn btn-lg btn-primary btn-block">Register</button>
+                    <button type="button" id="afegirExp" class="btn btn-lg btn-primary btn-block">Afegir</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer -->
-
-    <footer class="page-footer font-small py-5">
-        <!-- Footer Links -->
-        <div class="container text-center text-md-left mt-5">
-
-            <!-- Grid row -->
-            <div class="row mt-3 dark-grey-text">
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <div class="mapouter">
-                        <div class="gmap_canvas">
-                            <iframe width="368" height="361" id="gmap_canvas"
-                                src="https://maps.google.com/maps?q=Barcelona%2C%20Av.%20d'Esplugues%2C%2036%2C%2042&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                            <a href="https://www.embedgooglemap.net/blog/elementor-pro-discount-code-review/">elementor
-                                review</a>
-                        </div>
-                        <style>
-                            .mapouter {
-                                position: relative;
-                                text-align: right;
-                                height: 361px;
-                                width: 368px;
-                            }
-
-                            .gmap_canvas {
-                                overflow: hidden;
-                                background: none !important;
-                                height: 361px;
-                                width: 368px;
-                            }
-                        </style>
+        <div class="modal fade" id="modalRegist" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title h3 mb-3 font-weight-normal">Registra't</h1>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-signin">
+                            <label for="inputUserReg" class="sr-only">User</label>
+                            <input type="text" id="inputUserReg" class="form-control" placeholder="User" required=""
+                                autofocus="">
+                            <label for="inputPasswordReg" class="sr-only">Password</label>
+                            <input type="password" id="inputPasswordReg" class="form-control" placeholder="Password"
+                                required="">
+                        </form>
+                        <p id="messageReg" class="message-error"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="botoRegistrar"
+                            class="btn btn-lg btn-primary btn-block">Register</button>
                     </div>
                 </div>
-                <!-- Grid column -->
+            </div>
+        </div>
+        <!-- Footer -->
 
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <footer class="page-footer font-small py-5">
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left mt-5">
 
-                    <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Contacte</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>
-                        <i></i> -  Barcelona, Av. d'Esplugues, 36, 42</p>
-                    <p>
-                        <i></i> -  a8076391@xtec.cat</p>
-                    <p>
-                        <i></i> -  932 033 332</p>
-                    <p>
-                        <i></i> -  932 046 212</p>
-                    <p>
-                        <a class="text-muted" href="http://labs.iam.cat/~a18sonvargar/Viatges/admin/">Pàgina Admin</a></p>
+                <!-- Grid row -->
+                <div class="row mt-3 dark-grey-text">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <div class="mapouter">
+                            <div class="gmap_canvas">
+                                <iframe width="368" height="361" id="gmap_canvas"
+                                    src="https://maps.google.com/maps?q=Barcelona%2C%20Av.%20d'Esplugues%2C%2036%2C%2042&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                <a href="https://www.embedgooglemap.net/blog/elementor-pro-discount-code-review/">elementor
+                                    review</a>
+                            </div>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 361px;
+                                    width: 368px;
+                                }
+
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none !important;
+                                    height: 361px;
+                                    width: 368px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold">Contacte</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            <i></i> - Barcelona, Av. d'Esplugues, 36, 42</p>
+                        <p>
+                            <i></i> - a8076391@xtec.cat</p>
+                        <p>
+                            <i></i> - 932 033 332</p>
+                        <p>
+                            <i></i> - 932 046 212</p>
+                        <p>
+                            <a class="text-muted" href="admin">Pàgina
+                                Admin</a></p>
+
+                    </div>
+                    <!-- Grid column -->
 
                 </div>
-                <!-- Grid column -->
+                <!-- Grid row -->
 
             </div>
-            <!-- Grid row -->
+            <!-- Footer Links -->
 
-        </div>
-        <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center text-black-50 py-3">© 2019:
+                <a class="dark-grey-text"> Sonia, Laia, Yahya</a>
+            </div>
+            <!-- Copyright -->
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center text-black-50 py-3">© 2019:
-            <a class="dark-grey-text"> Sonia, Laia, Yahya</a>
-        </div>
-        <!-- Copyright -->
+        </footer>
 
-    </footer>
-
-    <script type="text/javascript" src="js/scripts.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 
 </html>
