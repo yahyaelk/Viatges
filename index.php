@@ -220,7 +220,7 @@
                     <p>
                         <i></i> -  932 046 212</p>
                     <p>
-                        <a class="text-muted" href="http://labs.iam.cat/~a17yahelekaj/Viatges/admin/">Pàgina Admin</a></p>
+                        <a class="text-muted" href="http://labs.iam.cat/~a18sonvargar/Viatges/admin/">Pàgina Admin</a></p>
 
                 </div>
                 <!-- Grid column -->
