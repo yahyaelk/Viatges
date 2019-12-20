@@ -1,5 +1,5 @@
 AuthType Basic
 AuthName "Restricted Files"
 AuthBasicProvider file
-AuthUserFile "C:\wamp64\www\Viatges\admin\passwords/claus"
+AuthUserFile "/var/www/html/Viatges/admin/passwords/claus"
 Require user ausias
