@@ -1,5 +1,5 @@
 AuthType Basic
 AuthName "Restricted Files"
 AuthBasicProvider file
-AuthUserFile "/var/www/html/Viatges/admin/passwords/.htpasswd"
+AuthUserFile "passwords/.htpasswd"
 Require user ausias
