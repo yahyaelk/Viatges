@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Restricted Files"
+AuthBasicProvider file
+AuthUserFile "/home/a18sonvargar/public_html/Viatges/admin/passwords/claus"
+Require user ausias
